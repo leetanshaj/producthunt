@@ -185,22 +185,4 @@ if st.button("Fetch Data"):
 
         df.drop(["links"], axis=1, inplace=True)
 
-
-
         st.write(df)
-
-
-
-        if not df.empty:
-
-            buffer = BytesIO()
-
-            with pd.ExcelWriter(buffer, engine='openpyxl') as writer:
-
-                df.to_excel(writer, index=False)
-
-                writer.save()
-
-            
-
-            st.download_button(label="Download Excel", data=buffer, file_name="product_hunt_rankings.xlsx", mime="application/vnd.ms-excel")
