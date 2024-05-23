@@ -158,7 +158,7 @@ if st.button("Fetch Data"):
 
 
 
-        df['makers'] = df['slug'].progress_apply(get_makers)
+        df['makers'] = df['slug'].apply(get_makers)
 
         df = df.explode('makers')
         df.dropna(inplace=True)
@@ -169,7 +169,7 @@ if st.button("Fetch Data"):
 
         df.drop("makers", axis=1, inplace=True)
 
-        df['links'] = df["username"].progress_apply(get_links)
+        df['links'] = df["username"].apply(get_links)
 
         
 
